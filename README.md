@@ -18,15 +18,15 @@ The default app view is an interactive demo with synthetic records. Use **Sign i
 
 Requirements: Node.js 20.19+ or 22.12+ and a reachable MongoDB instance.
 
-1. Copy `server/.env.example` to `server/.env`.
-2. Set `MONGO_URI` to a local or development MongoDB database. Generate independent secrets for `JWT_SECRET` and `STORAGE_ENCRYPTION_KEY`; do not use the sample values.
+1. Create `server/.env` locally. Environment files are intentionally excluded from this repository.
+2. Set `MONGO_URI` to a local or development MongoDB database. Add `JWT_SECRET` and `STORAGE_ENCRYPTION_KEY` as independent random secrets; never commit them.
 
    ```powershell
    node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"
    node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
    ```
 
-   Use the first output for `JWT_SECRET` and the second for `STORAGE_ENCRYPTION_KEY`.
+   Use the first output for `JWT_SECRET` and the second for `STORAGE_ENCRYPTION_KEY`. The encryption key must be 64 hexadecimal characters.
 3. Install dependencies from the repository root with `npm install`.
 4. Start the client and API with `npm run dev`.
 5. Open `http://localhost:5173`. Register a patient account to use connected storage and consent flows. The API runs on port 4000 and Vite proxies `/api` to it.

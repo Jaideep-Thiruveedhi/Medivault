@@ -1,8 +1,7 @@
 **/node_modules/
 **/dist/
 coverage/
-.env
-server/.env
+**/.env*
 server/storage/
 server/tmp/
 *.log
